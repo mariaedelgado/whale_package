@@ -137,12 +137,14 @@ include_directories(
 # )
 add_executable(subscriber src/subscriber.cpp)
 add_executable(base_controller src/base_controller.cpp)
+add_executable(base_controller_imu src/base_controller_imu.cpp)
 
 ## Add cmake target dependencies of the library
 ## as an example, code may need to be generated before libraries
 ## either from message generation or dynamic reconfigure
 add_dependencies(subscriber whale_package_generate_messages_cpp)
 add_dependencies(base_controller whale_package_generate_messages_cpp)
+add_dependencies(base_controller_imu whale_package_generate_messages_cpp)
 
 ## Declare a C++ executable
 ## With catkin_make all packages are built within a single CMake context
@@ -162,6 +164,7 @@ add_dependencies(base_controller whale_package_generate_messages_cpp)
 ## Specify libraries to link a library or executable target against
 target_link_libraries(subscriber ${catkin_LIBRARIES})
 target_link_libraries(base_controller ${catkin_LIBRARIES})
+target_link_libraries(base_controller_imu ${catkin_LIBRARIES})
 
 #############
 ## Install ##
